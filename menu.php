@@ -18,24 +18,45 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="img/logo.png" alt="" width="150" height="40" />
+                    <img src="img/Logo.png" alt="" width="150" height="40" />
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#intro">inicio</a></li>
-				<li><a href="#service">noticias</a></li>
-				<li><a href="#doctor">centro</a></li>
-				<li><a href="#facilities">fotos</a></li>
-				<li><a href="#pricing">la entidad</a></li>
+				<li class="active"><a href="index.php">inicio</a></li>
+				<li><a href="noticias.php">noticias</a></li>
+				<li><a href="centros.php">centro</a></li>
+				<li><a href="fotos.php">fotos</a></li>
+				<li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Información al usuario <b class="caret"></b></a>
+				  <ul class="dropdown-menu">
+				  	<li><a href="transparencia.php">Transparencia</a></li>
+					<li><a href="deberes.php">Deberes</a></li>
+					<li><a href="derechos.php">Derechos</a></li>
+					<li><a href="manual_usuario.php">Manual</a></li>
+					<li><a href="funcionario.php">Directorio</a></li>
+					<li><a href="glosario.php">Glosario</a></li>
+					<li><a href="pqr.php">Pqr</a></li>
+				  </ul>
+				</li>
+				<li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Entidad <b class="caret"></b></a>
+				  <ul class="dropdown-menu">
+				  	<li><a href="hospital.php">Hospital</a></li>
+					<li><a href="mision.php">Mision</a></li>
+					<li><a href="vision.php">Vision</a></li>
+					<li><a href="manual.php">Manual de Funciones</a></li>
+					<li><a href="funcionario.php">Funcionario</a></li>
+					<li><a href="organigrama.php">Organigrama</a></li>
+				  </ul>
+				</li>
 				<li class="dropdown">
 				  <a href="#" class="dropdown-toggle" data-toggle="dropdown">servicios <b class="caret"></b></a>
 				  <ul class="dropdown-menu">
-					<li><a href="contacto.html">cita</a></li>
-					<li><a href="index-video.html">Pqr</a></li>
-					<li><a href="funcionario.php">Funcionario</a></li>
+					<li><a href="contacto.php">cita</a></li>
+					<li><a href="funcionario.php">Encuesta</a></li>
 				  </ul>
 				</li>
 			  </ul>

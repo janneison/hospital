@@ -51,10 +51,10 @@
 					<div class="widget">
 						<h5>Información</h5>
 						<ul>
-							<li><a href="#">Centros de Salud</a></li>
+							<li><a href="centros.php">Centros de Salud</a></li>
 							<li><a href="#">Preguntas Frecuentes</a></li>
 							<li><a href="#">Copaso</a></li>
-							<li><a href="#">Proveedores</a></li>
+							<li><a href="http://bionexo.com/co/" target="_blank">Proveedores</a></li>
 							<li><a href="#">Empleados</a></li>
 						</ul>
 					</div>

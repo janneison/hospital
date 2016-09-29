@@ -1,19 +1,21 @@
 <?php
 
-class Grupo_diccionario{
+class NombreFoto{
 
 private $id;
 private $nombre;
+private $titulo;
 
 
 function llenarDatos($row){
 
-		$Grupo_diccionarioVO = new Grupo_diccionario(); 
+		$nombreFoto = new NombreFoto(); 
 
-		$Grupo_diccionarioVO->set_id($row["id"]);
-		$Grupo_diccionarioVO->set_nombre($row["nombre"]);
-		
-		return $Grupo_diccionarioVO;
+		$nombreFoto->set_id($row["id"]);
+		$nombreFoto->set_nombre($row["nombre"]);
+		$nombreFoto->set_titulo($row["titulo"]);
+
+		return $nombreFoto;
 	}
 
 function get_id(){return $this->id;}
@@ -21,6 +23,10 @@ function set_id($valor){$this->id=$valor; }
 
 function get_nombre(){return $this->nombre;}
 function set_nombre($valor){$this->nombre=$valor; }
+
+function get_titulo(){return $this->titulo;}
+function set_titulo($valor){$this->titulo=$valor; }
+
 
 		/*-----------------------INSERTAR-------------------------------------------------------------*/
 			/*function insertar($objeto,$usuario){
@@ -68,7 +74,7 @@ function set_nombre($valor){$this->nombre=$valor; }
 
 		private function consultaPaginada($id){
 				$c = new Conexion; $conexion=$c->Conectarse($c);
-				$sql = "SELECT * FROM `grupo_diccionario`";
+				$sql = "SELECT * FROM nombre_foto";
 
 				$condicion=" WHERE ";
 				if($id!=""){
@@ -98,17 +104,10 @@ function set_nombre($valor){$this->nombre=$valor; }
 			return $data[0];
 		}
 
-
-
-		
-
-
-
-
-
-
-
-
+		function consulta(){
+			$data=$this->consultaPaginada('');
+			return $data;
+		}
 
 }
 

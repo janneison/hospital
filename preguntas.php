@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 include_once("Models/conexion.php");
-include_once("Models/Noticia.php");
+include_once("Models/Pregunta.php");
 ?>
 <head>
     <meta charset="utf-8">
@@ -88,8 +88,8 @@ include_once("Models/Noticia.php");
 					</div>
 					<div class="col-lg-6">
 						<div class="panel panel-info">
-						  <div class="panel-heading">Noticias</div>
-						  <div class="panel-body" class="justificar"><p class="justificar">Aqui estaras al dia con nuestro hospital.</p></div>
+						  <div class="panel-heading">Preguntas Frecuentes</div>
+						  <div class="panel-body" class="justificar"><p class="justificar">Aqui resolvemos tus dudas mas comunes.</p></div>
 						</div>
 					</div>					
 				</div>		
@@ -106,16 +106,14 @@ include_once("Models/Noticia.php");
         <div class="row">
 
         	<?php
-				$noticiaDAO = new Noticia();
-				$noticias = $noticiaDAO->consultaActivas(1);
+				$preguntaDAO = new Pregunta();
+				$preguntas = $preguntaDAO->consultaActivas();
 
-				if (count($noticias)>0){
-					foreach ($noticias as $nota){
+				if (count($preguntas)>0){
+					foreach ($preguntas as $pregunta){
 						print '<div class="col-md-10 blogShort">';
-                    	print '<h1>'.$nota->get_titulo().'</h1>';
-                    	print '<img src="img/noticias/'.$nota->get_imagen().'" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">';
-                    	print '<article><p>'.utf8_encode($nota->get_contenido()).'</p></article>';
-                    	print '<a class="btn btn-blog pull-right marginBottom10" href="#">ver mas</a>'; 
+                    	print '<h5>'.utf8_encode($pregunta->get_pregunta()).'</h5>';
+                    	print '<article><p>'.utf8_encode($pregunta->get_respuesta()).'</p></article>'; 
             			print '</div>';	
             		}		
 				}

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+include_once("Models/conexion.php");
+include_once("Models/NombreFoto.php");
+include_once("Models/foto.php");
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,42 +100,47 @@
     </section>
 
     <section id="facilities" class="home-section paddingbot-60">
-		<div class="container marginbot-50">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow fadeInDown" data-wow-delay="0.1s">
-					<div class="section-heading text-center">
-					<h2 class="h-bold">Fotos</h2>
-					<p>Gran Inaguracion</p>
-					</div>
-					</div>
-					<div class="divider-short"></div>
-				</div>
-			</div>
-		</div>
+    	<?php
+			$nombreFotoDAO = new NombreFoto();
+			$nombres = $nombreFotoDAO->consulta();
 
-<div class="container">
+			if (count($nombres)>0){
+				foreach ($nombres as $nombre){
+					
+					print '<div class="container marginbot-50"><div class="row"><div class="col-lg-8 col-lg-offset-2">';
+					print '<div class="wow fadeInDown" data-wow-delay="0.1s"><div class="section-heading text-center">';
+                    print '<h2 class="h-bold">'.$nombre->get_nombre().'</h2>';
+                    print '<p>'.$nombre->get_titulo().'</p>';
+                    print '</div></div><div class="divider-short"></div></div></div></div>';
+
+                    print '<div class="container">
 			<div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12" >
 					<div class="wow bounceInUp" data-wow-delay="0.2s">
-                    <div id="owl-works" class="owl-carousel">
-                        <div class="item"><a href="img/photo/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/1@2x.jpg"><img src="img/photo/1.jpg" class="img-responsive" alt="img"></a></div>
-                        <div class="item"><a href="img/photo/2.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/2@2x.jpg"><img src="img/photo/2.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/photo/3.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/3@2x.jpg"><img src="img/photo/3.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/photo/4.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/4@2x.jpg"><img src="img/photo/4.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/photo/5.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/5@2x.jpg"><img src="img/photo/5.jpg" class="img-responsive " alt="img"></a></div>
-                        <div class="item"><a href="img/photo/6.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="img/works/6@2x.jpg"><img src="img/photo/6.jpg" class="img-responsive " alt="img"></a></div>
-                    </div>
+                    <div id="owl-works'.$nombre->get_id().'" class="owl-carousel">';
+                    
+                    $fotoDAO = new Foto();
+					$fotos = $fotoDAO->consultaPorNombre($nombre->get_id());
+
+					foreach ($fotos as $foto){
+						print '<div class="item"><a href="img/photo/'.$foto->get_ruta().'" 
+						title="This is an image title" data-lightbox-gallery="gallery2" 
+						data-lightbox-hidpi="img/photo/'.$foto->get_ruta().'"><img src="img/photo/'.$foto->get_ruta().'" 
+						class="img-responsive" alt="img"></a></div>';
+
+					}
+
+					print '</div>
 					</div>
                 </div>
             </div>
-		</div>
-	</section>
-	<!-- /Section: works -->
-	
-	<!-- /Section: intro -->
+		</div>';
 
-	<<!-- Section: boxes -->
+            	}		
+			}
+		?>
+	</section>
+
     <?php
     	include 'boxes.php';
 	?>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+include_once("Models/conexion.php");
+include_once("Models/Glosario.php");
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,7 +99,40 @@
 	
 	<!-- /Section: intro -->
 
-	<<!-- Section: boxes -->
+	<section id="glosario" class="home-section nopadding paddingtop-60">
+
+		<div class="container">
+
+        <div class="row">
+		<h2>Glosario de terminos</h2>
+        	<?php
+				$glosarioDAO = new Glosario();
+				$glosarios = $glosarioDAO->consultaActivas(1);
+
+				if (count($glosarios)>0){
+					print '<div class="table-responsive">';
+					print '<table class="table table-bordered table-hover table-striped tablesorter">';
+					print '<thead><tr>';
+					print '<th>Concepto</th>';
+					print '<th>Descripción</th>';
+					print '<th>Fuente</th>';
+					print '</tr></thead><tbody>';
+
+					foreach ($glosarios as $glo){
+						print '<tr>';			
+						print '<td>'.$glo->get_concepto().'</td>';
+						print '<td>'.$glo->get_descripcion().'</td>';
+						print '<td>'.$glo->get_fuente().'</td>';
+						print '</tr>';
+            		}
+            		print '</tbody></table></div>';		
+				}
+			?>
+        </div>
+    </div>
+</section>
+
+	<!-- Section: boxes -->
     <?php
     	include 'boxes.php';
 	?>

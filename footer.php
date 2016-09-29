@@ -52,7 +52,7 @@
 						<h5>Información</h5>
 						<ul>
 							<li><a href="centros.php">Centros de Salud</a></li>
-							<li><a href="#">Preguntas Frecuentes</a></li>
+							<li><a href="preguntas.php">Preguntas Frecuentes</a></li>
 							<li><a href="#">Copaso</a></li>
 							<li><a href="http://bionexo.com/co/" target="_blank">Proveedores</a></li>
 							<li><a href="#">Empleados</a></li>
@@ -63,7 +63,7 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="wow fadeInDown" data-wow-delay="0.1s">
 					<div class="widget">
-						<h5>Hospital Materno Infantil</h5>
+						<h5>Hospital De Soledad</h5>
 						<p>
 						Citas por whatsapp.
 						</p>
